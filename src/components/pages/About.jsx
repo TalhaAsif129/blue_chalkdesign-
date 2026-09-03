@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 import peoples from "../../assets/peoples.jpg";
 import aboutvideo from "../../assets/aboutvideo.mp4";
@@ -313,12 +314,12 @@ const About = () => {
           who are both talented individuals and excellent collaborators. If you
           don't see a job listing below that suits your skill set, please fill
           out our{" "}
-          <a
-            href="https://bluechalk.com/partners/"
+          <Link
+            to="/partners"
             className="text-[#0089D0] hover:underline underline-offset-2"
           >
             creative partners interest form
-          </a>{" "}
+          </Link>
           to let us know more about your background and skills. And don't forget
           to follow us on social media to be the first to know about job new
           openings.

@@ -15,6 +15,7 @@ import TermsOfUse from "./pages/TermsOfUse";
 import AllProjectwork from "./work/AllProjectwork";
 import Workdetail from "./work/Workdetail";
 import Awardpage from "./pages/Awardpage";
+import Partners from "./pages/Partners";
 
 
 const Allroutes = () => {
@@ -45,7 +46,7 @@ const Allroutes = () => {
         <Route path="/work" element={<AllProjectwork />} />
          <Route path="/workdetail" element={<Workdetail />} />
           <Route path="/awardpage" element={<Awardpage />} />
-        
+          <Route path="/partners" element={<Partners />} />
 
       </Route>
 
