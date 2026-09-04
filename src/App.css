@@ -76,23 +76,105 @@ body {
 /* =========================================
    PAGE TRANSITION
 ========================================= */
-/* =========================================
-   ROUTE TRANSITION
-========================================= */
+/* ============================================
+   NAVBAR FIX - IMPORTANT
+============================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #ffffff; /* Change to your navbar color */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 80px; /* Adjust according to your navbar height */
+  display: flex;
+  align-items: center;
+}
 
+/* Main content - Push down to avoid navbar overlap */
+.main-content {
+  padding-top: 80px; /* Must match navbar height */
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+/* ============================================
+   ANIMATED LAYOUT WRAPPER
+============================================ */
+.animated-page-wrapper {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-page-content {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+  position: relative;
+}
+
+/* ============================================
+   PAGE TRANSITIONS
+============================================ */
+
+/* No animation */
+.page-normal {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Page visible after animation */
+.page-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* HOME -> OTHER PAGE (Bottom to Top) */
+.page-enter-from-bottom {
+  animation: slideUp 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* OTHER PAGE -> HOME (Top to Bottom) */
+.page-enter-from-top {
+  animation: slideDown 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   ROUTE TRANSITION (For Allroutes)
+============================================ */
 .route-transition {
   width: 100%;
   min-height: 100vh;
+  position: relative;
 }
 
-
-/* =========================================
-   HOME -> ABOUT / WORK / NEWS / CONTACT
-
-   New page comes from BOTTOM
-   Bottom -> Top
-========================================= */
-
+/* HOME -> OTHER PAGE */
 .route-home-to-page {
   animation: homeToPage 0.8s cubic-bezier(0.77, 0, 0.175, 1) both;
 }
@@ -101,20 +183,12 @@ body {
   from {
     transform: translateY(100vh);
   }
-
   to {
     transform: translateY(0);
   }
 }
 
-
-/* =========================================
-   ABOUT / WORK / NEWS / CONTACT -> HOME
-
-   Home comes from TOP
-   Top -> Bottom
-========================================= */
-
+/* OTHER PAGE -> HOME */
 .route-page-to-home {
   animation: pageToHome 0.8s cubic-bezier(0.77, 0, 0.175, 1) both;
 }
@@ -123,19 +197,33 @@ body {
   from {
     transform: translateY(-100vh);
   }
-
   to {
     transform: translateY(0);
   }
 }
 
-
-/* =========================================
-   OTHER PAGE -> OTHER PAGE
-
-   NO ANIMATION
-========================================= */
-
+/* OTHER PAGE -> OTHER PAGE */
 .route-no-animation {
   transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE FIXES
+============================================ */
+@media (max-width: 768px) {
+  .navbar {
+    height: 60px;
+  }
+  
+  .main-content {
+    padding-top: 60px;
+  }
+  
+  .animated-page-wrapper {
+    min-height: calc(100vh - 60px);
+  }
+  
+  .animated-page-content {
+    min-height: calc(100vh - 60px);
+  }
 }

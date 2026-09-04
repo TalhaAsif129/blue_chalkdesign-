@@ -828,7 +828,7 @@ const AllProjectwork = () => {
   return (
     <div className="max-w-[1440px] ">
       {/* Navigation Bar */}
-      <nav className="flex justify-between items-start py-6 border-gray-100 mb-8 flex-wrap gap-4">
+      {/* <nav className="flex justify-between items-start py-6 border-gray-100 mb-8 flex-wrap gap-4">
         <div className="flex gap-4 md:gap-10 items-start flex-wrap">
           {navItems.map((item) => (
             <a
@@ -844,7 +844,7 @@ const AllProjectwork = () => {
             </a>
           ))}
         </div>
-      </nav>
+      </nav> */}
 
       {/* Portfolio Filter */}
       <div ref={portfolioRef} className="w-full js-portfolio-variety-1">
